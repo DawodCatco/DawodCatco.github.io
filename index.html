@@ -39,11 +39,20 @@
             padding: 0 2rem;
         }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #f39c12;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -104,6 +113,24 @@
             padding: 2rem;
             position: relative;
             z-index: 1;
+        }
+
+        .hero-logo {
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto 2rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
@@ -332,6 +359,76 @@
             font-size: 1.3rem;
         }
 
+        /* Coffee Section */
+        .coffee {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
+            color: white;
+        }
+
+        .coffee-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .coffee-image {
+            text-align: center;
+        }
+
+        .coffee-svg {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+        }
+
+        .coffee-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #D7CCC8;
+        }
+
+        .coffee-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #EFEBE9;
+        }
+
+        .coffee-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .coffee-feature {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .coffee-feature:hover {
+            background: rgba(215, 204, 200, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .coffee-feature h4 {
+            color: #D7CCC8;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .coffee-feature p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
         /* Contact Section */
         .contact {
             padding: 6rem 2rem;
@@ -445,6 +542,12 @@
             margin-bottom: 2rem;
         }
 
+        .footer-logo {
+            max-width: 150px;
+            height: auto;
+            margin: 0 auto 1rem;
+        }
+
         .footer-section h3 {
             color: #f39c12;
             margin-bottom: 1rem;
@@ -463,9 +566,16 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
+            .logo-img {
+                height: 50px;
+            }
+
+            .hero-logo {
+                max-width: 200px;
+            }
+
+            .footer-logo {
+                max-width: 120px;
             }
 
             .hero h1 {
@@ -477,7 +587,8 @@
             }
 
             .about-content,
-            .contact-content {
+            .contact-content,
+            .coffee-content {
                 grid-template-columns: 1fr;
             }
 
@@ -500,7 +611,9 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">CATCO</div>
+            <div class="logo-container">
+                <img src="images/logo.png" alt="CatCo Logo" class="logo-img">
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -514,6 +627,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <img src="images/logo.png" alt="CatCo Logo" class="hero-logo">
             <h1>Building Iraqi Kurdistan's Future Together</h1>
             <p>Leading Contracting & Trading Company Since 2007</p>
             <a href="#contact" class="cta-button">Start Your Project</a>
@@ -557,12 +671,107 @@
         </div>
     </section>
 
+    <!-- Coffee Section -->
+    <section id="coffee" class="coffee">
+        <div class="coffee-content">
+            <div class="coffee-image">
+                <svg class="coffee-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="cupGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8D6E63;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6D4C41;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="coffeeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4E342E;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#3E2723;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Coffee beans background -->
+                    <ellipse cx="80" cy="80" rx="12" ry="15" fill="#5D4037" opacity="0.3"/>
+                    <ellipse cx="120" cy="60" rx="10" ry="13" fill="#5D4037" opacity="0.3"/>
+                    <ellipse cx="280" cy="90" rx="11" ry="14" fill="#5D4037" opacity="0.3"/>
+                    <ellipse cx="320" cy="70" rx="13" ry="16" fill="#5D4037" opacity="0.3"/>
+                    <ellipse cx="100" cy="240" rx="12" ry="15" fill="#5D4037" opacity="0.3"/>
+                    <ellipse cx="300" cy="250" rx="10" ry="13" fill="#5D4037" opacity="0.3"/>
+                    
+                    <!-- Coffee cup base -->
+                    <ellipse cx="200" cy="170" rx="80" ry="12" fill="#A1887F"/>
+                    <path d="M120 170 L125 220 Q125 235 140 238 L260 238 Q275 235 275 220 L280 170 Z" fill="url(#cupGrad)"/>
+                    <ellipse cx="200" cy="170" rx="80" ry="12" fill="#8D6E63"/>
+                    
+                    <!-- Coffee liquid -->
+                    <ellipse cx="200" cy="175" rx="70" ry="10" fill="url(#coffeeGrad)"/>
+                    
+                    <!-- Cup handle -->
+                    <path d="M280 180 Q310 180 310 200 Q310 220 280 220" stroke="#8D6E63" stroke-width="8" fill="none"/>
+                    
+                    <!-- Steam -->
+                    <path d="M170 160 Q165 140 170 125 Q175 110 170 95" stroke="#D7CCC8" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round">
+                        <animate attributeName="opacity" values="0.6;0.3;0.6" dur="3s" repeatCount="indefinite"/>
+                        <animate attributeName="d" values="M170 160 Q165 140 170 125 Q175 110 170 95;M170 160 Q175 140 170 125 Q165 110 170 95;M170 160 Q165 140 170 125 Q175 110 170 95" dur="3s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M200 155 Q195 135 200 120 Q205 105 200 90" stroke="#D7CCC8" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round">
+                        <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2.5s" repeatCount="indefinite"/>
+                        <animate attributeName="d" values="M200 155 Q195 135 200 120 Q205 105 200 90;M200 155 Q205 135 200 120 Q195 105 200 90;M200 155 Q195 135 200 120 Q205 105 200 90" dur="2.5s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M230 160 Q235 140 230 125 Q225 110 230 95" stroke="#D7CCC8" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round">
+                        <animate attributeName="opacity" values="0.5;0.4;0.5" dur="3.5s" repeatCount="indefinite"/>
+                        <animate attributeName="d" values="M230 160 Q235 140 230 125 Q225 110 230 95;M230 160 Q225 140 230 125 Q235 110 230 95;M230 160 Q235 140 230 125 Q225 110 230 95" dur="3.5s" repeatCount="indefinite"/>
+                    </path>
+                    
+                    <!-- Coffee capsules at bottom -->
+                    <g transform="translate(80, 260)">
+                        <rect x="0" y="0" width="30" height="35" rx="3" fill="#D4AF37"/>
+                        <rect x="0" y="8" width="30" height="3" fill="#B8860B"/>
+                        <ellipse cx="15" cy="2" rx="14" ry="3" fill="#DAA520"/>
+                    </g>
+                    <g transform="translate(185, 265)">
+                        <rect x="0" y="0" width="30" height="35" rx="3" fill="#8B4513"/>
+                        <rect x="0" y="8" width="30" height="3" fill="#654321"/>
+                        <ellipse cx="15" cy="2" rx="14" ry="3" fill="#A0522D"/>
+                    </g>
+                    <g transform="translate(290, 260)">
+                        <rect x="0" y="0" width="30" height="35" rx="3" fill="#C41E3A"/>
+                        <rect x="0" y="8" width="30" height="3" fill="#8B0000"/>
+                        <ellipse cx="15" cy="2" rx="14" ry="3" fill="#DC143C"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="coffee-text">
+                <h2>☕ Coffee Trading & Import</h2>
+                <p>CatCo is proud to expand its trading portfolio into the premium coffee industry, bringing the finest coffee beans and products from leading coffee-producing countries directly to Iraq and the Kurdistan Region.</p>
+                <p>We source high-quality Arabica and Robusta coffee beans from renowned origins including Brazil, Colombia, Ethiopia, Vietnam, and Central America. Our coffee import services cater to the growing demand for specialty coffee in the Iraqi market.</p>
+                <p>We particularly specialize in coffee capsules compatible with leading brewing systems, providing Iraqi consumers and businesses with convenient, consistent, and café-quality coffee experiences at home and in the workplace.</p>
+                
+                <div class="coffee-features">
+                    <div class="coffee-feature">
+                        <h4>🌍 Global Sources</h4>
+                        <p>Premium beans from Brazil, Colombia, Ethiopia & more</p>
+                    </div>
+                    <div class="coffee-feature">
+                        <h4>☕ Coffee Capsules</h4>
+                        <p>Compatible with major brewing systems</p>
+                    </div>
+                    <div class="coffee-feature">
+                        <h4>🏆 Quality Guaranteed</h4>
+                        <p>Arabica & Robusta specialty grades</p>
+                    </div>
+                    <div class="coffee-feature">
+                        <h4>🚚 Reliable Supply</h4>
+                        <p>Direct import for cafés, hotels & retailers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="about-content">
             <div class="about-text">
-                <h2>About Cat.Co</h2>
-                <p>Cat.Co for Contracting and Trading is a leading private company registered at the Ministry of Finance Directorate of Company Registering in June 2007, with a nominal reserved capital of 1,000,000,000 ID.</p>
+                <h2>About CatCo</h2>
+                <p>CatCo for Contracting and Trading is a leading private company registered at the Ministry of Finance Directorate of Company Registering in June 2007, with a nominal reserved capital of 1,000,000,000 ID.</p>
                 <p>Our founders have been engaged in business and economic activities since the 1980s, bringing deep knowledge of Iraqi and Kurdistan Region market mechanisms and development.</p>
                 <p>With experienced management including partnerships with German companies such as ZUBIL, we deliver excellence in construction, trading, and infrastructure projects.</p>
             </div>
@@ -587,8 +796,27 @@
         </div>
     </section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="vision">
+    <!-- Coffee Section -->
+    <section id="coffee" class="coffee">
+        <div class="coffee-content">
+            <div class="coffee-image">
+                <div class="coffee-placeholder">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="coffeeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3E2723;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#5D4037;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Coffee cup -->
+                        <ellipse cx="200" cy="180" rx="80" ry="15" fill="#8D6E63"/>
+                        <path d="M120 180 L120 220 Q120 240 140 245 L260 245 Q280 240 280 220 L280 180 Z" fill="url(#coffeeGrad)"/>
+                        <ellipse cx="200" cy="180" rx="80" ry="15" fill="#6D4C41"/>
+                        <!-- Steam -->
+                        <path d="M170 160 Q165 140 170 120" stroke="#BCAAA4" stroke-width="3" fill="none" opacity="0.7">
+                            <animate attributeName="d" values="M170 160 Q165 140 170 120;M170 160 Q175 140 170 120;M170 160 Q165 140 170 120" dur="2s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M200 150
         <h2 class="section-title">Our Vision</h2>
         <div class="vision-content">
             <p class="vision-quote">We have to be in the forefront of the changes</p>
@@ -674,12 +902,14 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Cat.Co</h3>
+                <img src="images/logo.png" alt="CatCo Logo" class="footer-logo">
+                <h3>CatCo</h3>
                 <p>Leading the way in construction, trading, and infrastructure development across Iraq and Kurdistan Region since 2007.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <p><a href="#services" style="color: #bdc3c7; text-decoration: none;">Services</a><br>
+                <a href="#coffee" style="color: #bdc3c7; text-decoration: none;">Coffee</a><br>
                 <a href="#about" style="color: #bdc3c7; text-decoration: none;">About Us</a><br>
                 <a href="#vision" style="color: #bdc3c7; text-decoration: none;">Our Vision</a><br>
                 <a href="#contact" style="color: #bdc3c7; text-decoration: none;">Contact</a></p>
@@ -693,12 +923,11 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Catco for Contracting and Trading. All rights reserved. </p>
+            <p>&copy; 2025 CatCo for Contracting and Trading. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -712,14 +941,12 @@
             });
         });
 
-        // Form submission handler
         function handleSubmit(event) {
             event.preventDefault();
             alert('Thank you for your message! We will contact you soon.');
             event.target.reset();
         }
 
-        // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -734,7 +961,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card, .stat-box, .vision-item').forEach(el => {
+        document.querySelectorAll('.service-card, .stat-box, .vision-item, .coffee-feature').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
